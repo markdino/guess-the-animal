@@ -1,0 +1,182 @@
+[
+  {
+    "name": "cat",
+    "img": "cat.jpg",
+    "cover": "cat-cover.jpg",
+    "choices": ["goldfish", "piranha", "cat", "bear"]
+  },
+  {
+    "name": "chimpanzee",
+    "img": "chimpanzee.png",
+    "cover": "chimpanzee-cover.png",
+    "choices": ["raven", "crow", "cat", "chimpanzee"]
+  },
+  {
+    "name": "crocodile",
+    "img": "crocodile.jpg",
+    "cover": "crocodile-cover.jpg",
+    "choices": ["crocodile", "lizard", "frog", "turtle"]
+  },
+  {
+    "name": "crocodile",
+    "img": "crocodile 2.jpg",
+    "cover": "crocodile 2-cover.jpg",
+    "choices": ["horse", "mantis", "crocodile", "bird"]
+  },
+  {
+    "name": "dinosaur",
+    "img": "dinosaur.jpg",
+    "cover": "dinosaur-cover.jpg",
+    "choices": ["horse", "seahorse", "shrimp", "dinosaur"]
+  },
+  {
+    "name": "dog",
+    "img": "dog.jpg",
+    "cover": "dog-cover.jpg",
+    "choices": ["shark", "penguin", "rabbit", "dog"]
+  },
+  {
+    "name": "dog",
+    "img": "dog 2.jpg",
+    "cover": "dog 2-cover.jpg",
+    "choices": ["dog", "vulture", "marabou stock", "monkey"]
+  },
+  {
+    "name": "dog",
+    "img": "dog 3.jpg",
+    "cover": "dog 3-cover.jpg",
+    "choices": ["hen", "lion", "dog", "tiger"]
+  },
+  {
+    "name": "elepant",
+    "img": "elepant.jpg",
+    "cover": "elepant-cover.jpg",
+    "choices": ["elepant", "horse", "dolphin", "pigeon"]
+  },
+  {
+    "name": "elepant",
+    "img": "elepant 2.jpg",
+    "cover": "elepant 2-cover.jpg",
+    "choices": ["koala", "elepant", "mouse", "mole"]
+  },
+  {
+    "name": "flyingfox",
+    "img": "flyingfox.jpg",
+    "cover": "flyingfox-cover.jpg",
+    "choices": ["bat", "rat", "flyingfox", "sloth"]
+  },
+  {
+    "name": "fox",
+    "img": "fox.jpg",
+    "cover": "fox-cover.jpg",
+    "choices": ["giraffe", "roaster", "fox", "eagle"]
+  },
+  {
+    "name": "frog",
+    "img": "frog.jpg",
+    "cover": "frog-cover.jpg",
+    "choices": ["doberman", "frog", "Miniature Pinscher", "panther"]
+  },
+  {
+    "name": "goose",
+    "img": "goose.jpg",
+    "cover": "goose-cover.jpg",
+    "choices": ["goose", "dog", "cat", "rabbit"]
+  },
+  {
+    "name": "gorilla",
+    "img": "gorilla.png",
+    "cover": "gorilla-cover.png",
+    "choices": ["raven", "crow", "gorilla", "chimpanzee"]
+  },
+  {
+    "name": "hamster",
+    "img": "hamster.jpg",
+    "cover": "hamster-cover.jpg",
+    "choices": ["cat", "hamster", "bear", "duck"]
+  },
+  {
+    "name": "hippopotamus",
+    "img": "hippopotamus.jpg",
+    "cover": "hippopotamus-cover.jpg",
+    "choices": ["dinosaur", "hippopotamus", "seal lion", "monitor lizard"]
+  },
+  {
+    "name": "hourse",
+    "img": "hourse.jpg",
+    "cover": "hourse-cover.jpg",
+    "choices": ["hourse", "goose", "duck", "kangaroo"]
+  },
+  {
+    "name": "hyena",
+    "img": "hyena.jpg",
+    "cover": "hyena-cover.jpg",
+    "choices": ["tiger", "hyena", "baboon", "german shepherd"]
+  },
+  {
+    "name": "lion",
+    "img": "lion.jpg",
+    "cover": "lion-cover.jpg",
+    "choices": ["kangaroo", "rabbit", "fox", "lion"]
+  },
+  {
+    "name": "owl",
+    "img": "owl.jpg",
+    "cover": "owl-cover.jpg",
+    "choices": ["monkey", "cat", "koala", "owl"]
+  },
+  {
+    "name": "panda",
+    "img": "panda.jpeg",
+    "cover": "panda-cover.jpeg",
+    "choices": ["panda", "bear", "tiger", "orca"]
+  },
+  {
+    "name": "red panda",
+    "img": "red panda.jpg",
+    "cover": "red panda-cover.jpg",
+    "choices": ["goldfish", "bear", "squirrel", "red panda"]
+  },
+  {
+    "name": "roaster",
+    "img": "roaster.jpg",
+    "cover": "roaster-cover.jpg",
+    "choices": ["roaster", "cat", "white tiger", "swan"]
+  },
+  {
+    "name": "roaster",
+    "img": "roaster 2.png",
+    "cover": "roaster 2-cover.png",
+    "choices": ["roaster", "horse", "dolphin", "sheep"]
+  },
+  {
+    "name": "shark",
+    "img": "shark.jpg",
+    "cover": "shark-cover.jpg",
+    "choices": ["roaster", "horse", "shark", "goat"]
+  },
+  {
+    "name": "sloth",
+    "img": "sloth.jpg",
+    "cover": "sloth-cover.jpg",
+    "choices": ["chimpanzee", "sloth", "bat", "koala"]
+  },
+  {
+    "name": "toucan",
+    "img": "toucan.jpg",
+    "cover": "toucan-cover.jpg",
+    "choices": ["skunk", "toucan", "honey badger", "wild duck"]
+  },
+  {
+    "name": "wildebeest",
+    "img": "wildebeest.jpg",
+    "cover": "wildebeest-cover.jpg",
+    "choices": ["lion", "wildebeest", "bison", "chihuahua"]
+  },
+  {
+    "name": "wolf",
+    "img": "wolf.jpg",
+    "cover": "wolf-cover.jpg",
+    "choices": ["wolf", "fox", "dalmatian", "beaver"]
+  }
+]
