@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
-// import Play from './pages/Play'
+import Play from './pages/Play'
 import ParticipantContext from './store/ParticipantContext'
 
 function App() {
@@ -13,11 +13,11 @@ function App() {
       <Layout>
         <Routes>
           <Route path='/' element={<Home />} />
-          {/* <Route
+          <Route
             path='play'
             element={participants.length < 1 ? <Navigate to='/' /> : <Play />}
           />
-        </Routes> */}
+        </Routes>
       </Layout>
     </div>
   )
