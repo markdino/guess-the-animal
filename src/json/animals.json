@@ -69,7 +69,7 @@
     "name": "fox",
     "img": "fox.jpg",
     "cover": "fox-cover.jpg",
-    "choices": ["giraffe", "roaster", "fox", "eagle"]
+    "choices": ["giraffe", "roster", "fox", "eagle"]
   },
   {
     "name": "frog",
@@ -102,10 +102,10 @@
     "choices": ["dinosaur", "hippopotamus", "seal lion", "monitor lizard"]
   },
   {
-    "name": "hourse",
-    "img": "hourse.jpg",
-    "cover": "hourse-cover.jpg",
-    "choices": ["hourse", "goose", "duck", "kangaroo"]
+    "name": "horse",
+    "img": "horse.jpg",
+    "cover": "horse-cover.jpg",
+    "choices": ["horse", "goose", "duck", "kangaroo"]
   },
   {
     "name": "hyena",
@@ -138,22 +138,22 @@
     "choices": ["goldfish", "bear", "squirrel", "red panda"]
   },
   {
-    "name": "roaster",
-    "img": "roaster.jpg",
-    "cover": "roaster-cover.jpg",
-    "choices": ["roaster", "cat", "white tiger", "swan"]
+    "name": "roster",
+    "img": "roster.jpg",
+    "cover": "roster-cover.jpg",
+    "choices": ["roster", "cat", "white tiger", "swan"]
   },
   {
-    "name": "roaster",
-    "img": "roaster 2.png",
-    "cover": "roaster 2-cover.png",
-    "choices": ["roaster", "horse", "dolphin", "sheep"]
+    "name": "roster",
+    "img": "roster 2.png",
+    "cover": "roster 2-cover.png",
+    "choices": ["roster", "horse", "dolphin", "sheep"]
   },
   {
     "name": "shark",
     "img": "shark.jpg",
     "cover": "shark-cover.jpg",
-    "choices": ["roaster", "horse", "shark", "goat"]
+    "choices": ["roster", "horse", "shark", "goat"]
   },
   {
     "name": "sloth",
