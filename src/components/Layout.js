@@ -6,7 +6,7 @@ const Main = styled('main')({
   backgroundColor: '#ade3fe',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center',
+  backgroundPosition: 'bottom center',
   height: '100vh',
 })
 const FooterMark = styled('footer')({
