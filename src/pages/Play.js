@@ -44,10 +44,16 @@ const Main = styled('section')(({ bg }) => ({
 }))
 
 function Play() {
-  const { participants, updateParticipant } = useContext(ParticipantContext)
+  const {
+    participants,
+    updateParticipant,
+    player,
+    nextPlayer,
+    addPlayerScore,
+    selectPlayer,
+  } = useContext(ParticipantContext)
   const animalsData = animalsJson?.map((animal) => createQuizItem(animal))
 
-  const [playerIndex, setPlayerIndex] = useState(0)
   const [quizIndex, setQuizIndex] = useState(0)
   const [quizItems, setQuizItems] = useState(shuffleArray(animalsData))
   const [revealQuiz, setRevealQuiz] = useState(false)
@@ -67,11 +73,7 @@ function Play() {
 
     if (ongoingItem[quizIndex]?.name === item?.answer) {
       setAnswerStatus('Correct')
-
-      // Add score to player
-      const updatedPlayer = { ...participants[playerIndex] }
-      updatedPlayer.score += ongoingItem[quizIndex]?.points
-      updateParticipant(playerIndex, updatedPlayer)
+      addPlayerScore(ongoingItem[quizIndex]?.points)
     } else {
       setAnswerStatus('Wrong')
       // Reduce quiz points by 2
@@ -104,13 +106,9 @@ function Play() {
       }
       updateQuizItem({ status: 'failed' })
     }
-    setAnswerStatus('')
 
-    if (participants.length - 1 === playerIndex) {
-      setPlayerIndex(0)
-    } else {
-      setPlayerIndex(playerIndex + 1)
-    }
+    setAnswerStatus('')
+    nextPlayer()
   }
 
   const handleNextQuiz = () => {
@@ -188,14 +186,14 @@ function Play() {
                 sx={{ maxHeight: 'calc(100vh - 170px)', pr: 2, pt: 1.5 }}
               >
                 <Stack spacing={1}>
-                  {participants.map(({ id, name, score }, index) => (
+                  {participants.map(({ id, name, score }) => (
                     <Badge key={id} color='success' badgeContent={score}>
                       <Card
                         variant='outlined'
                         sx={{ width: '100%' }}
                         selectable
-                        active={playerIndex === index}
-                        onClick={() => setPlayerIndex(index)}
+                        active={player?.id === id}
+                        onClick={() => selectPlayer(id)}
                       >
                         <Typography textAlign='center'>
                           {name.toUpperCase()}
@@ -236,7 +234,7 @@ function Play() {
                     fontSize='1.5rem'
                     color={amber[500]}
                   >
-                    {`Player: ${participants[playerIndex]?.name}`}
+                    {`Player: ${player?.name}`}
                   </Typography>
                   {answerStatus && (
                     <Alert

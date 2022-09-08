@@ -6,10 +6,15 @@ const ParticipantContext = createContext({
   addParticipant: () => {},
   removeParticipant: () => {},
   updateParticipant: () => {},
+  nextPlayer: () => {},
+  selectPlayer: () => {},
+  player: {},
+  addPlayerScore: () => {},
 })
 
 export const ParticipantContextProvider = ({ children }) => {
   const [participants, setParticipants] = useState([])
+  const [playerIndex, setPlayerIndex] = useState(0)
 
   const addParticipant = (name) => {
     const participant = {
@@ -31,11 +36,33 @@ export const ParticipantContextProvider = ({ children }) => {
     setParticipants(mutableParticipants)
   }
 
+  const nextPlayer = () => {
+    if (participants.length - 1 === playerIndex) {
+      setPlayerIndex(0)
+    } else {
+      setPlayerIndex(playerIndex + 1)
+    }
+  }
+
+  const selectPlayer = (id) => {
+    setPlayerIndex(participants.findIndex((player) => player.id === id))
+  }
+
+  const addPlayerScore = (score) => {
+    const updatedPlayer = { ...participants[playerIndex] }
+    updatedPlayer.score += score
+    updateParticipant(playerIndex, updatedPlayer)
+  }
+
   const context = {
     participants,
     addParticipant,
     removeParticipant,
     updateParticipant,
+    nextPlayer,
+    player: participants[playerIndex],
+    selectPlayer,
+    addPlayerScore,
   }
 
   return (
