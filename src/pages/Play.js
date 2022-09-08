@@ -94,16 +94,10 @@ function Play() {
 
   const handleAlertClose = () => {
     if (answerStatus === 'Correct') {
-      setRevealQuiz(false)
-      if (ongoingItem.length - 1 === quizIndex) {
-        setQuizIndex(0)
-      }
+      handleNextQuiz()
       updateQuizItem({ status: 'answered' })
     } else if (answerStatus === 'Wrong' && ongoingItem[quizIndex]?.points < 6) {
-      setRevealQuiz(false)
-      if (ongoingItem.length - 1 === quizIndex) {
-        setQuizIndex(0)
-      }
+      handleNextQuiz()
       updateQuizItem({ status: 'failed' })
     }
 
