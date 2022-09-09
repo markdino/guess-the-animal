@@ -7,7 +7,7 @@ import ParticipantContext from './store/ParticipantContext'
 import { QuizContextProvider } from './store/QuizContext'
 
 function App() {
-  const { participants } = useContext(ParticipantContext)
+  const participants = useContext(ParticipantContext)
 
   return (
     <div className='App'>
@@ -17,7 +17,7 @@ function App() {
           <Route
             path='play'
             element={
-              participants.length < 1 ? (
+              participants.all?.length < 1 ? (
                 <Navigate to='/' />
               ) : (
                 <QuizContextProvider>

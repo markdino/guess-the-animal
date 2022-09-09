@@ -21,8 +21,7 @@ const Main = styled('section')({
 })
 
 function Home() {
-  const { participants, addParticipant, removeParticipant } =
-    useContext(ParticipantContext)
+  const participants = useContext(ParticipantContext)
 
   return (
     <Main>
@@ -33,10 +32,10 @@ function Home() {
       </HeroTitle>
       <AddParticipant
         label='Name of Participant'
-        onSubmit={(name) => addParticipant(name)}
+        onSubmit={(name) => participants.add(name)}
       />
       <Box sx={{ height: '100%' }}>
-        {participants?.length > 0 ? (
+        {participants.all?.length > 0 ? (
           <>
             <PlayButton sx={{ mb: 4 }} to='/play' />
             <Stack
@@ -51,13 +50,13 @@ function Home() {
                   maxWidth: '800px',
                 }}
               >
-                {participants.map(({ id, name }) => (
+                {participants.all.map(({ id, name }) => (
                   <Card key={id} elevation={2} sx={{ mx: 2, mb: 2 }}>
                     <Cancel
                       fontSize='small'
                       color='error'
                       className='closeButton'
-                      onClick={() => removeParticipant(id)}
+                      onClick={() => participants.remove(id)}
                     />
                     <Typography>{name}</Typography>
                   </Card>
