@@ -54,11 +54,13 @@ const QuizBoard = () => {
 
   return (
     <>
+      {/* Image Preview Panel */}
       <Preview
         image={quiz.isReveal ? quiz.current?.img : quiz.current?.cover}
         elevation={3}
         sx={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}
       />
+
       {/* Menu Panel */}
       <Stack
         direction='row'
@@ -92,7 +94,8 @@ const QuizBoard = () => {
           )}
         </Stack>
       </Stack>
-      {/* Answer choices */}
+
+      {/* Answers  Panel */}
       <Paper elevation={3} sx={{ backgroundColor: brown[500], p: 3 }}>
         <Grid container spacing={2}>
           {quiz.current?.choices.map((item, index) => (

@@ -67,7 +67,8 @@ function Play() {
               </Stack>
             </Stack>
           </Grid>
-          {/* Participants */}
+
+          {/* Participants Panel */}
           <Grid item sm={3} xs={12}>
             <Paper elevation={3} sx={{ p: 2, pl: 4 }}>
               <Stack
@@ -115,7 +116,7 @@ function Play() {
           </Grid>
           <Grid item xs={0.5} />
 
-          {/* Preview Quiz */}
+          {/* Main panel */}
           <Grid item sm={8.5} xs={12}>
             {quiz.isEnd ? <AwardBoard players={participants} /> : <QuizBoard />}
           </Grid>
