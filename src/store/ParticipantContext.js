@@ -2,10 +2,10 @@ import { createContext, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 
 const ParticipantContext = createContext({
-  participants: [],
-  addParticipant: () => {},
-  removeParticipant: () => {},
-  updateParticipant: () => {},
+  all: [],
+  add: () => {},
+  remove: () => {},
+  update: () => {},
   nextPlayer: () => {},
   selectPlayer: () => {},
   player: {},
@@ -55,10 +55,10 @@ export const ParticipantContextProvider = ({ children }) => {
   }
 
   const context = {
-    participants,
-    addParticipant,
-    removeParticipant,
-    updateParticipant,
+    all: participants,
+    add: addParticipant,
+    remove: removeParticipant,
+    update: updateParticipant,
     nextPlayer,
     player: participants[playerIndex],
     selectPlayer,

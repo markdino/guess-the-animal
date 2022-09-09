@@ -36,9 +36,7 @@ const Main = styled('section')(({ bg }) => ({
 }))
 
 function Play() {
-  const { participants, updateParticipant, player, selectPlayer } =
-    useContext(ParticipantContext)
-
+  const participants = useContext(ParticipantContext)
   const quiz = useContext(QuizContext)
 
   return (
@@ -81,10 +79,10 @@ function Play() {
                   elevation={1}
                   sx={{ p: 1, pb: 0.5, cursor: 'pointer' }}
                   onClick={() =>
-                    updateParticipant(
+                    participants.update(
                       quiz.ongoingItems?.length < 1
-                        ? sortTopScore(participants)
-                        : shuffleArray(participants)
+                        ? sortTopScore(participants.all)
+                        : shuffleArray(participants.all)
                     )
                   }
                 >
@@ -95,14 +93,14 @@ function Play() {
                 sx={{ maxHeight: 'calc(100vh - 170px)', pr: 2, pt: 1.5 }}
               >
                 <Stack spacing={1}>
-                  {participants.map(({ id, name, score }) => (
+                  {participants.all.map(({ id, name, score }) => (
                     <Badge key={id} color='success' badgeContent={score}>
                       <Card
                         variant='outlined'
                         sx={{ width: '100%' }}
                         selectable
-                        active={player?.id === id}
-                        onClick={() => selectPlayer(id)}
+                        active={participants.player?.id === id}
+                        onClick={() => participants.selectPlayer(id)}
                       >
                         <Typography textAlign='center'>
                           {name.toUpperCase()}
@@ -118,7 +116,11 @@ function Play() {
 
           {/* Main panel */}
           <Grid item sm={8.5} xs={12}>
-            {quiz.isEnd ? <AwardBoard players={participants} /> : <QuizBoard />}
+            {quiz.isEnd ? (
+              <AwardBoard players={participants.all} />
+            ) : (
+              <QuizBoard />
+            )}
           </Grid>
         </Grid>
       </Container>
