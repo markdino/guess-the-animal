@@ -44,7 +44,6 @@ export const QuizContextProvider = ({ children }) => {
     } else {
       setQuizIndex(quizIndex + 1)
     }
-    setRevealQuiz(false)
   }
 
   const context = {
@@ -64,9 +63,18 @@ export const QuizContextProvider = ({ children }) => {
   useEffect(() => {
     if (ongoingItems[quizIndex]?.points < 6 || answerStatus === 'Correct') {
       setRevealQuiz(true)
+    } else {
+      setRevealQuiz(false)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answerStatus, ongoingItems[quizIndex]?.points])
+
+  useEffect(() => {
+    if (ongoingItems.length - 1 === quizIndex) {
+      setQuizIndex(0)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ongoingItems.length])
 
   useEffect(() => {
     if (ongoingItems?.length <= 0) {

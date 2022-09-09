@@ -41,10 +41,8 @@ const QuizBoard = () => {
 
   const handleAlertClose = () => {
     if (quiz.answerStatus === 'Correct') {
-      quiz.next()
       quiz.update({ status: 'answered' })
     } else if (quiz.answerStatus === 'Wrong' && quiz.current?.points < 6) {
-      quiz.next()
       quiz.update({ status: 'failed' })
     }
 
