@@ -39,7 +39,7 @@
     "name": "dog",
     "img": "dog 2.jpg",
     "cover": "dog 2-cover.jpg",
-    "choices": ["dog", "vulture", "marabou stock", "monkey"]
+    "choices": ["dog", "vulture", "marabou stork", "monkey"]
   },
   {
     "name": "dog",
@@ -93,7 +93,7 @@
     "name": "hamster",
     "img": "hamster.jpg",
     "cover": "hamster-cover.jpg",
-    "choices": ["cat", "hamster", "bear", "duck"]
+    "choices": ["cat", "hamster", "bear", "lion"]
   },
   {
     "name": "hippopotamus",
