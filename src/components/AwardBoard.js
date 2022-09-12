@@ -6,14 +6,14 @@ import { sortTopScore } from '../Utils'
 import HeroTitle from './HeroTitle'
 
 const AwardBoard = ({ players }) => {
-  const topPlayers = sortTopScore(players)
+  const [first, second, third] = sortTopScore(players)
   return (
     <Stack spacing={3} justifyContent='center' alignItems='center'>
       <Stack alignItems='center'>
-        {topPlayers[0]?.score && (
+        {first?.score && (
           <>
             <Typography fontSize='2rem' fontFamily='Paytone One'>
-              {topPlayers[0].name}
+              {first.name}
             </Typography>
             <img height={190} src={firstAward} alt='1st award' />
           </>
@@ -25,20 +25,20 @@ const AwardBoard = ({ players }) => {
         sx={{ width: '100%' }}
       >
         <Stack alignItems='center'>
-          {topPlayers[1]?.score && (
+          {second?.score && (
             <>
               <Typography fontSize='2rem' fontFamily='Paytone One'>
-                {topPlayers[1].name}
+                {second.name}
               </Typography>
               <img height={190} src={secondAward} alt='2ns award' />
             </>
           )}
         </Stack>
         <Stack alignItems='center'>
-          {topPlayers[2]?.score && (
+          {third?.score && (
             <>
               <Typography fontSize='2rem' fontFamily='Paytone One'>
-                {topPlayers[2].name}
+                {third.name}
               </Typography>
               <img height={190} src={thirdAward} alt='third award' />
             </>
