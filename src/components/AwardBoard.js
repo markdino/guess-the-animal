@@ -10,11 +10,14 @@ const AwardBoard = ({ players }) => {
   return (
     <Stack spacing={3} justifyContent='center' alignItems='center'>
       <Stack alignItems='center'>
-        <Typography fontSize='2rem' fontFamily='Paytone One'>
-          {topPlayers[0]?.name}
-        </Typography>
-
-        <img height={200} src={firstAward} alt='1st award' />
+        {topPlayers[0]?.score && (
+          <>
+            <Typography fontSize='2rem' fontFamily='Paytone One'>
+              {topPlayers[0].name}
+            </Typography>
+            <img height={190} src={firstAward} alt='1st award' />
+          </>
+        )}
       </Stack>
       <Stack
         direction='row'
@@ -22,18 +25,24 @@ const AwardBoard = ({ players }) => {
         sx={{ width: '100%' }}
       >
         <Stack alignItems='center'>
-          <Typography fontSize='2rem' fontFamily='Paytone One'>
-            {topPlayers[1]?.name}
-          </Typography>
-
-          <img height={200} src={secondAward} alt='2ns award' />
+          {topPlayers[1]?.score && (
+            <>
+              <Typography fontSize='2rem' fontFamily='Paytone One'>
+                {topPlayers[1].name}
+              </Typography>
+              <img height={190} src={secondAward} alt='2ns award' />
+            </>
+          )}
         </Stack>
         <Stack alignItems='center'>
-          <Typography fontSize='2rem' fontFamily='Paytone One'>
-            {topPlayers[2]?.name}
-          </Typography>
-
-          <img height={200} src={thirdAward} alt='third award' />
+          {topPlayers[2]?.score && (
+            <>
+              <Typography fontSize='2rem' fontFamily='Paytone One'>
+                {topPlayers[2].name}
+              </Typography>
+              <img height={190} src={thirdAward} alt='third award' />
+            </>
+          )}
         </Stack>
       </Stack>
       <HeroTitle>
