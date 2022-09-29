@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
         <section>{`version: ${version}`}</section>
         <section>
           {'Develop and design with ❤️ by '}
-          <Link href={author?.url}>{author?.name}</Link>
+          <Link href={author?.url} target='_blank'>{author?.name}</Link>
           {' © '}
           <Sup>{new Date().getFullYear()}</Sup>
         </section>
