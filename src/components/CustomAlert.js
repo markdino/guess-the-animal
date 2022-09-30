@@ -17,6 +17,7 @@ const CustomAlert = ({
   autoClose,
   closeInterval = 5,
   sx,
+  onClose,
   ...props
 }) => {
   const [progress, setProgress] = useState(0)
@@ -39,12 +40,16 @@ const CustomAlert = ({
     }
 
     if (progress === 100) {
-      props.onClose()
+      onClose()
     }
-  }, [progress, closeInterval, autoClose])
+  }, [progress, closeInterval, autoClose, onClose])
 
   return (
-    <Alert sx={{ position: 'relative', overflow: 'hidden', ...sx }} {...props}>
+    <Alert
+      onClose={onClose}
+      sx={{ position: 'relative', overflow: 'hidden', ...sx }}
+      {...props}
+    >
       {children}
       <Progressbar color={color} progress={progress} />
     </Alert>
