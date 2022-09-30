@@ -1,6 +1,5 @@
 import { ArrowForwardIos, Check, Close } from '@mui/icons-material'
 import {
-  Alert,
   AlertTitle,
   Button,
   Grid,
@@ -14,6 +13,7 @@ import ParticipantContext from '../store/ParticipantContext'
 import QuizContext from '../store/QuizContext'
 import Capsule from './Capsule'
 import CircleButton from './CircleButton'
+import CustomAlert from './CustomAlert'
 import Preview from './Preview'
 
 const QuizBoard = () => {
@@ -70,14 +70,15 @@ const QuizBoard = () => {
           {`Player: ${participants.player?.name}`}
         </Typography>
         {quiz.answerStatus && (
-          <Alert
+          <CustomAlert
             severity={quiz.answerStatus === 'Correct' ? 'success' : 'error'}
             icon={quiz.answerStatus === 'Correct' ? <Check /> : <Close />}
             onClose={handleAlertClose}
+            autoClose
             sx={{ marginTop: '-40px !important' }}
           >
             <AlertTitle>{`${quiz.answerStatus} answer!`}</AlertTitle>
-          </Alert>
+          </CustomAlert>
         )}
         <Stack direction='row' spacing={1}>
           <Capsule>

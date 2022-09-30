@@ -12,7 +12,9 @@ import {
   Grid,
   Paper,
   Stack,
+  Tooltip,
   Typography,
+  Zoom,
 } from '@mui/material'
 import { brown } from '@mui/material/colors'
 import { useContext } from 'react'
@@ -26,6 +28,8 @@ import ParticipantContext from '../store/ParticipantContext'
 import { shuffleArray, sortTopScore } from '../Utils'
 import confetti from '../assets/images/confetti.gif'
 import QuizContext from '../store/QuizContext'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 const Main = styled('section')(({ bg }) => ({
   backgroundImage: `url('${bg}')`,
@@ -38,6 +42,16 @@ const Main = styled('section')(({ bg }) => ({
 function Play() {
   const participants = useContext(ParticipantContext)
   const quiz = useContext(QuizContext)
+  const [showTooltip, setShowTooltip] = useState(false)
+
+  useEffect(() => {
+    setShowTooltip(true)
+    const id = setTimeout(() => setShowTooltip(false), 10000)
+
+    return () => {
+      clearTimeout(id)
+    }
+  }, [quiz.isEnd])
 
   return (
     <Main bg={quiz.isEnd && confetti}>
@@ -75,19 +89,31 @@ function Play() {
                 alignItems='center'
               >
                 <Typography fontWeight={700}>Participants</Typography>
-                <Paper
-                  elevation={1}
-                  sx={{ p: 1, pb: 0.5, cursor: 'pointer' }}
-                  onClick={() =>
-                    participants.update(
-                      quiz.ongoingItems?.length < 1
-                        ? sortTopScore(participants.all)
-                        : shuffleArray(participants.all)
-                    )
-                  }
+                <Tooltip
+                  title={quiz.isEnd ? 'Sort' : 'Shuffle'}
+                  placement='right'
+                  arrow
+                  TransitionComponent={Zoom}
+                  open={showTooltip}
+                  onOpen={() => setShowTooltip(true)}
+                  onClose={() => setShowTooltip(false)}
+                  enterDelay={500}
+                  leaveDelay={200}
                 >
-                  {quiz.ongoingItems?.length < 1 ? <Sort /> : <Shuffle />}
-                </Paper>
+                  <Paper
+                    elevation={1}
+                    sx={{ p: 1, pb: 0.5, cursor: 'pointer' }}
+                    onClick={() =>
+                      participants.update(
+                        quiz.isEnd
+                          ? sortTopScore(participants.all)
+                          : shuffleArray(participants.all)
+                      )
+                    }
+                  >
+                    {quiz.isEnd ? <Sort /> : <Shuffle />}
+                  </Paper>
+                </Tooltip>
               </Stack>
               <Wrapper
                 sx={{ maxHeight: 'calc(100vh - 170px)', pr: 2, pt: 1.5 }}
