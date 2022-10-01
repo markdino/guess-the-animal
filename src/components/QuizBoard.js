@@ -75,6 +75,7 @@ const QuizBoard = () => {
             icon={quiz.answerStatus === 'Correct' ? <Check /> : <Close />}
             onClose={handleAlertClose}
             autoClose
+            closeInterval={quiz.answerStatus === 'Correct' ? 8 : 5}
             sx={{ marginTop: '-40px !important' }}
           >
             <AlertTitle>{`${quiz.answerStatus} answer!`}</AlertTitle>
