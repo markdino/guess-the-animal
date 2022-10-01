@@ -21,28 +21,40 @@ const CustomAlert = ({
   ...props
 }) => {
   const [progress, setProgress] = useState(0)
+  const [timerId, setTimerId] = useState(0)
+
   const theme = useTheme()
   const color =
     props.severity === 'success'
       ? theme.palette.success.dark
       : theme.palette.warning.dark
 
-  useEffect(() => {
+  const handleProgressIncrement = () => {
     const sec = 1000
-    const tick = (sec * closeInterval) / 100
+    const tick = (sec * closeInterval * 2) / 100
 
     if (autoClose && progress < 100) {
-      const timerId = setTimeout(() => {
-        setProgress(progress + 1)
+      const timer = setInterval(() => {
+        setProgress((prevState) => prevState + 1)
       }, tick)
 
-      return () => clearInterval(timerId)
+      setTimerId(timer)
     }
+  }
 
+  useEffect(() => {
+    handleProgressIncrement()
+
+    return () => clearInterval(timerId)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
     if (progress === 100) {
+      clearInterval(timerId)
       onClose()
     }
-  }, [progress, closeInterval, autoClose, onClose])
+  }, [progress, onClose, timerId])
 
   return (
     <Alert
