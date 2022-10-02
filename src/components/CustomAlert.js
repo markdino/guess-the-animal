@@ -31,7 +31,7 @@ const CustomAlert = ({
 
   const handleProgressIncrement = () => {
     const sec = 1000
-    const tick = (sec * closeInterval * 2) / 100
+    const tick = (sec * closeInterval) / 100
 
     if (autoClose && progress < 100) {
       const timer = setInterval(() => {
