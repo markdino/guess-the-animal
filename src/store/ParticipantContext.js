@@ -10,11 +10,15 @@ const ParticipantContext = createContext({
   selectPlayer: () => {},
   player: {},
   addPlayerScore: () => {},
+  minimumRequired: 3,
+  setMinimuRequired: () => {},
+  isQualified: false,
 })
 
 export const ParticipantContextProvider = ({ children }) => {
   const [participants, setParticipants] = useState([])
   const [playerIndex, setPlayerIndex] = useState(0)
+  const [minimumRequired, setMinimuRequired] = useState(3)
 
   const addParticipant = (name) => {
     const participant = {
@@ -63,6 +67,9 @@ export const ParticipantContextProvider = ({ children }) => {
     player: participants[playerIndex],
     selectPlayer,
     addPlayerScore,
+    minimumRequired,
+    setMinimuRequired: (event) => setMinimuRequired(event?.target?.value),
+    isQualified: participants?.length >= minimumRequired,
   }
 
   return (

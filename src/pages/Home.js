@@ -1,13 +1,15 @@
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, MenuItem, Stack, Tooltip, Typography } from '@mui/material'
 import { useContext } from 'react'
 import styled from 'styled-components'
 import AddParticipant from '../components/AddParticipant'
 import Card from '../components/Card'
 import HeroTitle from '../components/HeroTitle'
 import ParticipantContext from '../store/ParticipantContext'
-import { Cancel } from '@mui/icons-material'
+import { Cancel, PeopleAlt } from '@mui/icons-material'
 import BreathingText from '../components/BreathingText'
 import PlayButton from '../components/PlayButton'
+import SelectField from '../components/SelectField'
+import { brown } from '@mui/material/colors'
 
 const Main = styled('section')({
   display: 'flex',
@@ -22,9 +24,37 @@ const Main = styled('section')({
 
 function Home() {
   const participants = useContext(ParticipantContext)
+  const selectItem = []
 
+  for (let i = 1; i <= 10; i++) {
+    selectItem.push(i)
+  }
   return (
     <Main>
+      <Stack
+        direction='row'
+        spacing={2}
+        alignItems='center'
+        justifyContent='flex-end'
+        sx={{ alignSelf: 'flex-end', color: brown[500] }}
+      >
+        <PeopleAlt />
+        <Tooltip title='Required Participants' placement='bottom' arrow>
+          <SelectField
+            labelId='minimum-participants-label'
+            id='minimum-participants'
+            value={participants.minimumRequired}
+            onChange={participants.setMinimuRequired}
+            label='Required Participants'
+          >
+            {selectItem.map((item) => (
+              <MenuItem key={item} value={item}>
+                {item + '+'}
+              </MenuItem>
+            ))}
+          </SelectField>
+        </Tooltip>
+      </Stack>
       <HeroTitle>
         <Typography fontSize='7rem'>Guess</Typography>
         <Typography fontSize='2.5rem'>The</Typography>
@@ -37,7 +67,15 @@ function Home() {
       <Box sx={{ height: '100%' }}>
         {participants.all?.length > 0 ? (
           <>
-            <PlayButton sx={{ mb: 4 }} to='/play' />
+            <Tooltip
+              title={`Required participants are ${participants.minimumRequired} or more`}
+              open={!participants.isQualified}
+            >
+              <PlayButton
+                sx={{ mb: 4 }}
+                to={participants.isQualified ? '/play' : '/'}
+              />
+            </Tooltip>
             <Stack
               justifyContent='center'
               sx={{ height: 'calc(100% - 110px)' }}
